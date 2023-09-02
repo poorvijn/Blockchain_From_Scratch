@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/poorvijn/Blockchain_From_Scratch/issues"
   },
-  "homepage": "https://github.com/poorvijn/Blockchain_From_Scratch#readme"
+  "homepage": "https://github.com/poorvijn/Blockchain_From_Scratch#readme",
+  "dependencies": {
+    "hex-to-binary": "^1.0.1"
+  }
 }
