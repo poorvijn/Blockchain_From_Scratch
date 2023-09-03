@@ -4,6 +4,7 @@
   "description": "I've followed a YouTube video to create a local blockchain from scratch using JavaScript.  \r Here is the vidoe: [Create a Blockchain from scratch](https://youtu.be/7OR12WF2-3Y?si=E5aML-0uPRr-YG4u)",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/poorvijn/Blockchain_From_Scratch#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "hex-to-binary": "^1.0.1"
   }
 }
