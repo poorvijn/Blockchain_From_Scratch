@@ -2,7 +2,7 @@ const redis = require('redis');
 
 const CHANNELS = {
     TEST:'TEST',
-    BLOCKCHAIN: 'BLOCKCHAIN'
+    BLOCKCHAIN: 'BLOCKCHAIN',
 }
 
 class PubSub{
@@ -12,8 +12,8 @@ class PubSub{
         this.subscriber = redis.createClient();
 
         this.subscriber.subscribe(CHANNELS.TEST);
-
-        this.subscriber.on('message', (channel,message)=>this.handleMessage(channel,message));
+        this.subscriber.subscribe(CHANNELS.BLOCKCHAIN);
+        this.subscriber.on("message", (channel,message)=>this.handleMessage(channel,message));
     }
     
     handleMessage(channel,message){
@@ -31,8 +31,8 @@ class PubSub{
     broadcastChain(){
         this.publish({
             channel: CHANNELS.BLOCKCHAIN,
-            message: JSON.stringify(this.blockchain.chain)
-        });
+            message: JSON.stringify(this.blockchain.chain),
+    });
     }
 }
 
