@@ -18,6 +18,21 @@ class PubSub{
     
     handleMessage(channel,message){
         console.log(`Message received. Channel ${channel} and Message ${message}`);
+        const parseMessage = JSON.parse(message);
+        if(channel === CHANNELS.BLOCKCHAIN){
+            this.blockchain.replaceChain(parseMessage);
+        }
+    }
+
+    publish({channel, message}){
+        this.publisher.publish(channel,message);
+    }
+
+    broadcastChain(){
+        this.publish({
+            channel: CHANNELS.BLOCKCHAIN,
+            message: JSON.stringify(this.blockchain.chain)
+        });
     }
 }
 
